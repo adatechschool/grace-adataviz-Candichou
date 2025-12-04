@@ -11,19 +11,21 @@ async function fetchLaboratories() {
     /* console.log(apiData); */
     /* return apiData; */
 
-    const researchContainer = document.createElement("div");
-    researchContainer.classList.add("search-container");
+    const searchContainer = document.createElement("div");
+    searchContainer.classList.add("search-container");
 
     //création de la barre et le bouton de recherche
-    const researchBar = document.createElement("input");
-    const btnResearch = document.createElement("button");
-    btnResearch.textContent = "RECHERCHER";
-    app.appendChild(researchContainer);
-    researchContainer.appendChild(researchBar);
-    researchContainer.appendChild(btnResearch);
+    const searchInput = document.createElement("input");
+    const searchButton = document.createElement("button");
+    searchButton.textContent = "RECHERCHER";
+    app.appendChild(searchContainer);
+    searchContainer.appendChild(searchInput);
+    searchContainer.appendChild(searchButton);
     //le contenu de la barre de recherche
-    researchBar.type = "text";
-    researchBar.placeholder = "Rechercher par arrondissement (ex: 75010)...";
+    searchInput.type = "text";
+    searchInput.placeholder = "Rechercher par arrondissement (ex: 75010)...";
+
+    /* searchButton.addEventListener("click", () => {}); */
 
     apiData.results.forEach((laboratory) => {
       const listLabo = document.createElement("li");
