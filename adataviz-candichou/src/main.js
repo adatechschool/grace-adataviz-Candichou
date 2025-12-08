@@ -20,7 +20,6 @@ async function fetchLaboratories() {
     searchInput.type = "text";
     searchInput.placeholder =
       "Rechercher par arrondissement (ex: 75015 ou 15)...";
-    /* searchButton.textContent = "RECHERCHER"; */
 
     app.appendChild(searchContainer);
     searchContainer.appendChild(searchInput);
@@ -28,6 +27,11 @@ async function fetchLaboratories() {
 
     const listContainer = document.createElement("ul");
     app.appendChild(listContainer);
+
+    //Création bouton voir plus
+    const btnLoadMore = document.createElement("button");
+    btnLoadMore.textContent = "voir plus";
+    app.appendChild(btnLoadMore);
 
     // --- Affichage des labos ---
     function displayLaboratories(laboratories) {
@@ -40,6 +44,8 @@ async function fetchLaboratories() {
         listContainer.appendChild(empty);
         return;
       } */
+      /*     const loadMoreContainer = document.createElement("div");
+      loadMoreContainer.classList.add("loadMore-container"); */
 
       laboratories.forEach((laboratory) => {
         const listLabo = document.createElement("li");
@@ -87,11 +93,6 @@ async function fetchLaboratories() {
     // --- Fonction de filtrage réutilisable ---
     function applyFilter() {
       const valueInput = searchInput.value.trim();
-      /* 
-      if (valueInput === "") {
-        displayLaboratories(allLaboratories);
-        return;
-      } */
 
       const filteredLabs = allLaboratories.filter((laboratory) => {
         const cp = String(laboratory.code_postal || "").trim();
@@ -105,9 +106,6 @@ async function fetchLaboratories() {
 
     // recherche en tapant
     searchInput.addEventListener("input", applyFilter);
-
-    // recherche au clic
-    searchButton.addEventListener("click", applyFilter);
   } catch (error) {
     console.error(error);
   }
