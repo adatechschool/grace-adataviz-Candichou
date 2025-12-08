@@ -1,4 +1,4 @@
-/* ---------- RESET SIMPLE ---------- */
+/* /* ---------- RESET SIMPLE ---------- */
 *,
 *::before,
 *::after {
@@ -19,7 +19,7 @@ body {
 }
 
 /* Conteneur principal */
-#app {
+ #app {
   max-width: 960px;
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
@@ -30,7 +30,7 @@ body {
 
 /* ---------- BARRE DE RECHERCHE ---------- */
 
-.search-container {
+ .search-container {
   background: #ffffff;
   border-radius: 12px;
   padding: 1rem;
@@ -38,16 +38,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  border-left: 4px solid #e21b5a; /* accent VIH / Sidaction */
+  border-left: 4px solid #e21b5a; accent VIH / Sidaction 
 }
+ 
 
 /* texte placeholder */
-.search-container input::placeholder {
+ .search-container input::placeholder {
   color: #9aa5b1;
-}
+} 
 
 /* champ de recherche */
-.search-container input {
+ .search-container input {
   width: 100%;
   padding: 0.65rem 0.75rem;
   border-radius: 999px;
@@ -55,15 +56,15 @@ body {
   outline: none;
   font-size: 0.95rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
+} 
 
 .search-container input:focus-visible {
   border-color: #e21b5a;
   box-shadow: 0 0 0 3px rgba(226, 27, 90, 0.2);
-}
+} 
 
 /* bouton RECHERCHER */
-.search-container button {
+ .search-container button {
   align-self: flex-start;
   padding: 0.55rem 1.2rem;
   border-radius: 999px;
@@ -89,7 +90,7 @@ body {
 }
 
 /* Sur écrans moyens et + : barre de recherche en ligne */
-@media (min-width: 640px) {
+ @media (min-width: 640px) {
   .search-container {
     flex-direction: row;
     align-items: center;
@@ -98,7 +99,7 @@ body {
   .search-container input {
     flex: 1;
   }
-}
+} 
 
 /* ---------- LISTE DES LABORATOIRES ---------- */
 
@@ -113,14 +114,14 @@ body {
   flex-direction: column;
   gap: 0.35rem;
   border-left: 4px solid #e21b5a;
-}
+} 
 
 /* espace entre les cartes */
-#app li + li {
+ #app li + li {
   margin-top: 0.75rem;
-}
+} 
 
-#app h2 {
+ #app h2 {
   margin: 0;
   font-size: 1rem;
   color: #111827;
@@ -142,8 +143,7 @@ body {
 }
 
 /* ---------- BOUTON "VOIR LES HORAIRES" ---------- */
-
-#app li button {
+ #app li button {
   margin-top: 0.5rem;
   align-self: flex-start;
   padding: 0.35rem 0.9rem;
@@ -168,7 +168,7 @@ body {
   transform: translateY(0);
 }
 
-/* paragraphes d’horaires, quand ils sont visibles */
+/*paragraphes d’horaires, quand ils sont visibles */
 #app li p:last-of-type {
   margin-top: 0.35rem;
   font-size: 0.85rem;
