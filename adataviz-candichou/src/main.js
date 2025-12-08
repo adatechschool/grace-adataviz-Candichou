@@ -15,16 +15,16 @@ async function fetchLaboratories() {
     searchContainer.classList.add("search-container");
 
     const searchInput = document.createElement("input");
-    const searchButton = document.createElement("button");
+    /* const searchButton = document.createElement("button"); */
 
     searchInput.type = "text";
     searchInput.placeholder =
       "Rechercher par arrondissement (ex: 75015 ou 15)...";
-    searchButton.textContent = "RECHERCHER";
+    /* searchButton.textContent = "RECHERCHER"; */
 
     app.appendChild(searchContainer);
     searchContainer.appendChild(searchInput);
-    searchContainer.appendChild(searchButton);
+    /*  searchContainer.appendChild(searchButton); */
 
     const listContainer = document.createElement("ul");
     app.appendChild(listContainer);
