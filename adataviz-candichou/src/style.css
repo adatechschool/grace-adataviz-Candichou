@@ -21,7 +21,7 @@ body {
 /* ---------- INTRO (bloc de présentation au-dessus de la recherche) ---------- */
 
 .intro {
-  max-width: 960px;
+  max-width: 940px;
   margin: 2rem auto 1rem;
   padding: 1.5rem 1.75rem;
   background: #ffffff;
@@ -37,12 +37,12 @@ body {
 
 .intro p {
   margin: 0;
-  line-height: 1.5;
+  line-height: 1, 5;
   font-size: 0.95rem;
   color: #4b5563;
 }
 
-/* ---------- CONTENEUR PRINCIPAL (injecté par ton JS) ---------- */
+/* ---------- CONTENEUR PRINCIPAL  ---------- */
 
 #app {
   max-width: 960px;
@@ -88,7 +88,7 @@ body {
   box-shadow: 0 0 0 3px rgba(226, 27, 90, 0.2);
 }
 
-/* si un jour tu ajoutes un bouton dans .search-container */
+/* style d'un bouton .search-container */
 .search-container button {
   align-self: flex-start;
   padding: 0.55rem 1.2rem;
@@ -128,7 +128,7 @@ body {
 
 /* ---------- LISTE DES LABORATOIRES ---------- */
 
-/* le <ul> créé dans ton JS */
+/* le <ul> */
 #app ul {
   padding: 0;
   margin: 0;
@@ -167,7 +167,7 @@ body {
   color: #4b5563;
 }
 
-/* adresse et téléphone un peu plus discrets */
+/* adresse et téléphone  */
 #app p:nth-of-type(2),
 #app p:nth-of-type(3) {
   font-size: 0.85rem;
@@ -217,7 +217,7 @@ body {
   transform: translateY(0);
 }
 
-/* bouton GO un peu différent, plus "action" */
+/* bouton GO*/
 .card-actions button:last-child {
   background: #10b981;
   border-color: #059669;
