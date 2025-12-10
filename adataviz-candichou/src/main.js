@@ -126,7 +126,7 @@ function applyFilter() {
     return;
   }
   const filteredLabs = allLaboratories.filter((laboratory) => {
-    const cp = String(laboratory.code_postal || "").trim();
+    const cp = laboratory.code_postal.trim();
     return cp.startsWith(valueInput) || cp.includes(valueInput);
   });
 
