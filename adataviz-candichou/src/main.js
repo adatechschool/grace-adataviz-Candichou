@@ -1,3 +1,5 @@
+import "./style.css";
+
 /* https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/laboratoires-danalyses-medicales/records?limit=20 */
 const app = document.getElementById("app");
 let offset = 0;
