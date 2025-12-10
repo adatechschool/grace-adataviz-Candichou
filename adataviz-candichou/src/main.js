@@ -105,7 +105,7 @@ async function fetchLaboratories() {
       `https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/laboratoires-danalyses-medicales/records?limit=${limit}&offset=${offset}`
     );
     const apiData = await response.json();
-    const newLaboratories = apiData.results || [];
+    const newLaboratories = apiData.results;
 
     allLaboratories = [...allLaboratories, ...newLaboratories];
 
@@ -119,14 +119,14 @@ async function fetchLaboratories() {
 ********* FILTRE CODE POSTALE / BARRE DE RECHERCHE ******
 __________________________________________ */
 function applyFilter() {
-  const valueInput = searchInput.value.trim();
+  const valueInput = searchInput.value;
   if (valueInput === "") {
     // si rien dans la barre : on affiche tout
     displayLaboratories(allLaboratories);
     return;
   }
   const filteredLabs = allLaboratories.filter((laboratory) => {
-    const cp = laboratory.code_postal.trim();
+    const cp = laboratory.code_postal;
     return cp.startsWith(valueInput) || cp.includes(valueInput);
   });
 
