@@ -4,7 +4,11 @@ let offset = 0;
 const limit = 20;
 let allLaboratories = [];
 
-// --- Barre de recherche ---
+/* ----------------------------------------------
+*************** STRUCTURE PAGE ****************** 
+_______________________________________________*/
+
+// --- Contenant et Création barre de recherche ---
 const searchContainer = document.createElement("div");
 searchContainer.classList.add("search-container");
 const searchInput = document.createElement("input");
@@ -13,22 +17,29 @@ searchInput.placeholder = "Rechercher par arrondissement (ex: 75015 ou 15)...";
 searchContainer.appendChild(searchInput);
 app.appendChild(searchContainer);
 
-// ----- le contenant de la liste de tous les laboratoires ---
+// ----- Contenant de la liste de tous les laboratoires ---
 const listContainer = document.createElement("ul");
 app.appendChild(listContainer);
 
-//----- Création bouton VOIR PLUS-----
+/* --------------------------------------------
+************** BOUTON VOIR PLUS ***************
+_______________________________________________ */
 const btnLoadMore = document.createElement("button");
 btnLoadMore.textContent = "voir plus";
 app.appendChild(btnLoadMore);
-
-// --- Affichage des labos ---
+btnLoadMore.addEventListener("click", () => {
+  offset += limit;
+  fetchLaboratories();
+});
+/* --------------------------------------------
+******** AFFICHAGE DES LABORATOIRES ***********
+_______________________________________________ */
 function displayLaboratories(laboratories) {
   listContainer.innerHTML = "";
 
   if (!laboratories.length) {
     const msg = document.createElement("p");
-    msg.textContent = "Aucun laboratoire à afficher.";
+    msg.textContent = "Aucun laboratoire.";
     listContainer.appendChild(msg);
     return;
   }
@@ -51,7 +62,10 @@ function displayLaboratories(laboratories) {
     horaires.textContent = laboratory.horaires;
     btnGo.textContent = "GO";
 
-    // ----- Création du bouton HORAIRES ---
+    /* ------------------------------------------
+  ********* ACTION BOUTON HORAIRES ************
+  ___________________________________________ */
+
     btnSchedules.innerText = "voir les horaires";
     horaires.style.display = "none";
     btnSchedules.addEventListener("click", () => {
@@ -80,6 +94,9 @@ function displayLaboratories(laboratories) {
   });
 }
 
+/* ---------------------------------------
+*************** FETCH API ****************
+__________________________________________ */
 async function fetchLaboratories() {
   try {
     const response = await fetch(
@@ -95,11 +112,14 @@ async function fetchLaboratories() {
     console.error(error);
   }
 }
-// --- Fonction de filtrage réutilisable ---
+
+/* ---------------------------------------
+********* FILTRE CODE POSTALE / BARRE DE RECHERCHE ******
+__________________________________________ */
 function applyFilter() {
   const valueInput = searchInput.value.trim();
   if (valueInput === "") {
-    // si rien dans la barre → on affiche tout
+    // si rien dans la barre : on affiche tout
     displayLaboratories(allLaboratories);
     return;
   }
@@ -110,13 +130,6 @@ function applyFilter() {
 
   displayLaboratories(filteredLabs);
 }
-// recherche en tapant
 searchInput.addEventListener("input", applyFilter);
-
-// Action du bouton VOIR PLUS
-btnLoadMore.addEventListener("click", () => {
-  offset += limit;
-  fetchLaboratories();
-});
 
 fetchLaboratories();
