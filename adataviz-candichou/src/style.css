@@ -1,4 +1,4 @@
-/* /* ---------- RESET SIMPLE ---------- */
+/* ---------- RESET SIMPLE ---------- */
 *,
 *::before,
 *::after {
@@ -18,8 +18,33 @@ body {
   color: #1f2933;
 }
 
-/* Conteneur principal */
- #app {
+/* ---------- INTRO (bloc de présentation au-dessus de la recherche) ---------- */
+
+.intro {
+  max-width: 960px;
+  margin: 2rem auto 1rem;
+  padding: 1.5rem 1.75rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.intro h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  color: #111827;
+}
+
+.intro p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+/* ---------- CONTENEUR PRINCIPAL (injecté par ton JS) ---------- */
+
+#app {
   max-width: 960px;
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
@@ -30,7 +55,7 @@ body {
 
 /* ---------- BARRE DE RECHERCHE ---------- */
 
- .search-container {
+.search-container {
   background: #ffffff;
   border-radius: 12px;
   padding: 1rem;
@@ -38,17 +63,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  border-left: 4px solid #e21b5a; accent VIH / Sidaction 
+  /* accent VIH / Sidaction */
+  border-left: 4px solid #e21b5a;
 }
- 
 
 /* texte placeholder */
- .search-container input::placeholder {
+.search-container input::placeholder {
   color: #9aa5b1;
-} 
+}
 
 /* champ de recherche */
- .search-container input {
+.search-container input {
   width: 100%;
   padding: 0.65rem 0.75rem;
   border-radius: 999px;
@@ -56,15 +81,15 @@ body {
   outline: none;
   font-size: 0.95rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-} 
+}
 
 .search-container input:focus-visible {
   border-color: #e21b5a;
   box-shadow: 0 0 0 3px rgba(226, 27, 90, 0.2);
-} 
+}
 
-/* bouton RECHERCHER */
- .search-container button {
+/* si un jour tu ajoutes un bouton dans .search-container */
+.search-container button {
   align-self: flex-start;
   padding: 0.55rem 1.2rem;
   border-radius: 999px;
@@ -90,7 +115,7 @@ body {
 }
 
 /* Sur écrans moyens et + : barre de recherche en ligne */
- @media (min-width: 640px) {
+@media (min-width: 640px) {
   .search-container {
     flex-direction: row;
     align-items: center;
@@ -99,10 +124,17 @@ body {
   .search-container input {
     flex: 1;
   }
-} 
+}
 
 /* ---------- LISTE DES LABORATOIRES ---------- */
 
+/* le <ul> créé dans ton JS */
+#app ul {
+  padding: 0;
+  margin: 0;
+}
+
+/* chaque labo = <li> */
 #app li {
   list-style: none;
   margin: 0;
@@ -114,14 +146,14 @@ body {
   flex-direction: column;
   gap: 0.35rem;
   border-left: 4px solid #e21b5a;
-} 
+}
 
 /* espace entre les cartes */
- #app li + li {
+#app li + li {
   margin-top: 0.75rem;
-} 
+}
 
- #app h2 {
+#app h2 {
   margin: 0;
   font-size: 1rem;
   color: #111827;
@@ -142,10 +174,27 @@ body {
   color: #6b7280;
 }
 
-/* ---------- BOUTON "VOIR LES HORAIRES" ---------- */
- #app li button {
+/* paragraphes d’horaires, quand ils sont visibles */
+#app li p:last-of-type {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  background: #f9fafb;
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  border: 1px dashed #e5e7eb;
+}
+
+/* ---------- ZONE BOUTONS (voir horaires + GO) ---------- */
+
+.card-actions {
   margin-top: 0.5rem;
-  align-self: flex-start;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* style de base pour les boutons dans la carte */
+.card-actions button {
   padding: 0.35rem 0.9rem;
   font-size: 0.8rem;
   border-radius: 999px;
@@ -157,25 +206,106 @@ body {
     transform 0.15s ease;
 }
 
-#app li button:hover {
+.card-actions button:hover {
   background: #e21b5a;
   color: #ffffff;
   border-color: #e21b5a;
   transform: translateY(-1px);
 }
 
-#app li button:active {
+.card-actions button:active {
   transform: translateY(0);
 }
 
-/*paragraphes d’horaires, quand ils sont visibles */
-#app li p:last-of-type {
-  margin-top: 0.35rem;
+/* bouton GO un peu différent, plus "action" */
+.card-actions button:last-child {
+  background: #10b981;
+  border-color: #059669;
+  color: white;
+}
+
+.card-actions button:last-child:hover {
+  background: #059669;
+}
+
+/* ---------- BOUTON "VOIR PLUS" ---------- */
+
+#app > button {
+  align-self: center;
+  margin-top: 0.5rem;
+  padding: 0.55rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #e21b5a, #ff3c6f);
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   font-size: 0.85rem;
-  background: #f9fafb;
-  padding: 0.45rem 0.6rem;
-  border-radius: 8px;
-  border: 1px dashed #e5e7eb;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#app > button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(226, 27, 90, 0.25);
+}
+
+#app > button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+  margin-top: 1rem;
+  background-color: #111827;
+  color: #e5e7eb;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.footer-section {
+  flex: 1 1 260px;
+  max-width: 420px;
+}
+
+.footer h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer ul li {
+  margin: 0.3rem 0;
+}
+
+.footer a {
+  color: #f973a8;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  flex: 1 1 100%;
+  margin-top: 1.5rem;
+  border-top: 1px solid #374151;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 /* ---------- RESPONSIVE GRAND ÉCRAN ---------- */
