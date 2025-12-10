@@ -41,7 +41,7 @@ function displayLaboratories(laboratories) {
 
   if (!laboratories.length) {
     const msg = document.createElement("p");
-    msg.textContent = "Aucun laboratoire.";
+    msg.textContent = "Aucun laboratoire trouvé.";
     listContainer.appendChild(msg);
     return;
   }
